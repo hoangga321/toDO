@@ -34,8 +34,6 @@ function render() {
   // (1) 기존 목록을 모두 비운다. (비우지 않으면 항목이 중복해서 쌓인다.)
    list.innerHTML = '';
   
-}
-
   // (2) 배열의 항목을 하나씩 꺼내 li 요소를 만든다.
   //     todo = 배열의 각 항목(객체), index = 그 항목의 순번(0, 1, 2 ...)
   todos.forEach((todo, index) => {
@@ -58,7 +56,7 @@ function render() {
       span.textContent = todo.text;
       
       const deleteBtn = document.createElement('button');
-      deleteBtn.classList.add('delete-btn');
+      deleteBtn.classList.add('del-btn');
       deleteBtn.type = 'button';
       deleteBtn.textContent = 'Delete';
       deleteBtn.addEventListener('click', () => {
@@ -77,11 +75,11 @@ function render() {
    countText.textContent = `남은 할 일: ${remaining}개`;
 
    if (todos.length === 0) {
-      emptyMsg.classlist.add('show');
+      emptyMsg.classList.add('show');
    } else {
-      emptyMsg.classlist.remove('show');
+      emptyMsg.classList.remove('show');
    }
-  
+}
 
 /* ---------------------------------------------------------
    4. 할 일 추가 — form 의 submit 이벤트
